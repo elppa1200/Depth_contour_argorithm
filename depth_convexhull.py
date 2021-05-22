@@ -10,11 +10,6 @@ You have to tuning parameter on your own condition.
 import numpy as np
 import cv2, sys
 
-global imgR, imgL
-
-cap0 = cv2.VideoCapture(0) # cap0 is right camera
-cap1 = cv2.VideoCapture(1) # cap1 is left camera
-
 
 def hullsum(hull,lenth, pos):
     a = []
@@ -23,11 +18,19 @@ def hullsum(hull,lenth, pos):
     rtn = sum(a)/lenth
     return(int(rtn))
 
+global imgR, imgL
+
+cap0 = cv2.VideoCapture(0) # cap0 is right camera
+cap1 = cv2.VideoCapture(1) # cap1 is left camera
+
 _,frm0 = cap0.read()
 _,frm1 = cap1.read()
-        
+
 imgR= cv2.imread(frm0,0)
 imgL= cv2.imread(frm1,0)
+
+# imgR= cv2.imread('depth/img/right.jpg',cv2.IMREAD_GRAYSCALE)
+# imgL= cv2.imread('depth/img/left.jpg', cv2.IMREAD_GRAYSCALE)
 
 imgL = cv2.resize(imgL, dsize=(640, 480), interpolation=cv2.INTER_AREA)
 imgR = cv2.resize(imgR, dsize=(640, 480), interpolation=cv2.INTER_AREA)
