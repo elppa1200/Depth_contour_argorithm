@@ -3,6 +3,8 @@ Find contour from depth estimation
   
 This code use two images or two cameras  
 
+Detection nearest object and draw convexhull of the object.  
+
 # Example
 left image  
 ![left](https://user-images.githubusercontent.com/56443524/119229568-a29fe680-bb53-11eb-9b56-f4f389feb074.jpg)  
